@@ -1,0 +1,42 @@
+#dialect에 의해 해당 데이터베이스를 찾고 그거에 의해 SQL문이 생성된다.
+
+spring-data-jpa는 스프링 프레임워크에서 JPA를 편리하게 사용할수 있도록 제공해주는 프로젝트이다.
+
+조회 작업에는 내부적으로 1차 캐시가 존재.
+외부에서 특정한 엔티티를 조회하게 되면 내부에서는 1차 캐시안에 엔티티가 존재하는 지를 살펴보고 없는 경우에 SQL문을 통해서 데이터베이스에서 가져온다.
+(업데이트 시에는 find로 찾은 객체를 set을 통해 값을 변경하고 1차 캐시 영역에 존재하는 객체와 비교  업데이트 쿼리 생성 및 반영)
+
+영속성 컨텍스
+비영속 : new, 자바 영역에만 존재. 순수한 자바 객체
+영속 : managed, 데이터 베이스에 저장. 메모리상에도 같은 상태로 존재(1차 캐시 영역에 저장, SQL 저장소에 저장)
+준영속 : detached. 영속 컨텍스트에서 엔티티 객체를 꺼내서 사용하는 상태(commit, DB에 쿼리 반영)
+삭제 : 데이터 베이스에서 삭제된 상태. 더 이상 영속 컨텍스트에 존재하지 않는다.(1차 캐시에서 삭제)
+
+QueryDsl
+- JAVA를 이용해서 쿼리 조건을 처리할 때 사용하는 라이브러리
+  QueryDsl를 이용해서 필요한 조건을 처리하는 Java 코드를 생성하고, Repository를 통해서 처리한다.
+
+  Querydsl은 JPA를 처리하기 위해서 엔티티 클래스를 생성하는 방식을 이용한다.
+  이를 Qdomain이라고 한다.
+  동적 쿼리를 생성해 낼 때, 이를 사용하기 때문에 반드시 이를 실행할 방법이 있어야하고,
+  pom.xml에 Qdomain 클래스를 생성하는 작업을 위한 코드 생성기가 필요하다.
+
+  <plugin>
+    <groupId>com.mysema.maven</groupId>
+    <artifactId>apt-maven-plugin</artifactId>
+    <version>1.1.3</version>
+    <executions>
+       <execution>
+           <goals>
+              <goal>process</goal>
+             </goals>
+            <configuration>
+               <outputDirectory>target/generated-sources/java</outputDirectory>
+               <processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
+                <options>
+                    <querydsl.entityAccessors>true</querydsl.entityAccessors>
+                </options>
+            </configuration>
+       </execution>
+    </executions>
+  </plugin>

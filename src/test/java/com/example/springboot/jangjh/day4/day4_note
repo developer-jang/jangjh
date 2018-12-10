@@ -1,0 +1,13 @@
+ERD(Entity Relation Diagram)
+
+One To One
+One To Many
+Many To One -- optional=true이면 null 허용
+Many To Many
+
+단방향 참조 : 한 쪽의 클래스만이 다른 클래스의 인스턴스를 참조
+양방향 : 양 쪽의 클래스 모두 다른 클래스의 인스턴스를 참조
+
+MySQL의 엔진 - MyISAM, InnoDB
+-> MyISAM이 예전부터 사용되던 엔진으로 속도가 좀 더 빠르긴 하지만, 무결성 측면에서는 InnoDB가 낫다.
+-> spring.jpa.database-platform을 지정하지 않으면 기본적으로 MyISAM으로 지정

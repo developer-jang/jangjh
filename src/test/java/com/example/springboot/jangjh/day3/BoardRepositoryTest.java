@@ -1,8 +1,7 @@
 package com.example.springboot.jangjh.day3;
 
-import com.example.springboot.jangjh.day3.repository.BoardRepository;
+import com.example.springboot.jangjh.repository.BoardRepository;
 import lombok.extern.apachecommons.CommonsLog;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

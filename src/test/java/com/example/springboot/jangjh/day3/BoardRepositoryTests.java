@@ -1,7 +1,7 @@
 package com.example.springboot.jangjh.day3;
 
-import com.example.springboot.jangjh.day2.domain.Board;
-import com.example.springboot.jangjh.day3.repository.BoardRepository;
+import com.example.springboot.jangjh.domain.Board;
+import com.example.springboot.jangjh.repository.BoardRepository;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;

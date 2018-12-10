@@ -1,4 +1,4 @@
-package com.example.springboot.jangjh.day2.domain;
+package com.example.springboot.jangjh.domain;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

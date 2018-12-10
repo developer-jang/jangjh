@@ -1,6 +1,6 @@
-package com.example.springboot.jangjh.day3.repository;
+package com.example.springboot.jangjh.repository;
 
-import com.example.springboot.jangjh.day2.domain.Board;
+import com.example.springboot.jangjh.domain.Board;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;

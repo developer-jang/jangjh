@@ -1,0 +1,9 @@
+영속성 전이
+- 처리하려는 엔티티 객체의 상태에 따라 종속적인 객채들의 영속성도 처리되는 것
+
+CasCade 종류
+- persist 저장시 전이
+- merge 병합시 전이
+- remove 삭제시 전이
+- refresh 엔티티 매니저의 refresh() 호출 시 전이
+- detach 부모 엔티티가 detach되면 자식 엔티티 역시 detach
